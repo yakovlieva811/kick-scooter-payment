@@ -1,15 +1,20 @@
 package com.softserve.paymentservice.repository;
 
 import com.softserve.paymentservice.model.Card;
+import com.softserve.paymentservice.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
+@Component
 public interface CardRepository extends JpaRepository<Card, UUID> {
 
-    ArrayList<Card> findCardsByUserUUID(UUID userUUID);
-
-    Card findCardByUserUUIDAndCardNumber(UUID userUUID, String cardNumber);
+    ArrayList<Card> findByUser(User user);
+    Card findCardByCardNumberAndUser(String cardNumber, User user);
+//    ArrayList<Card> findCardsByUserUUID(UUID userUUID);
+//
+//    Card findCardByUserUUIDAndCardNumber(UUID userUUID, String cardNumber);
 
 }
