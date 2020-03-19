@@ -9,10 +9,8 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
-
-    private String customerIdFromStripe;
-    private UUID userUUID;
-
-
+public class PaymentDto {
+    private UUID userId;
+    private String cvc;
+    private String cardNumber;
 }

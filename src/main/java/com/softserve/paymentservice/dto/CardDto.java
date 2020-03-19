@@ -14,5 +14,5 @@ public class CardDto {
     private String cardNumber;
     private String expMonth;
     private String expYear;
-    private boolean blocked;
+
 }

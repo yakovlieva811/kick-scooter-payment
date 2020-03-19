@@ -9,7 +9,7 @@ public class UserDtoToModel implements Converter<UserDto, User>{
     @Override
     public User convert(UserDto userDto) {
         User user = new User();
-        user.setUserUUID(userDto.getUserUUID());
+        user.setId(userDto.getUserUUID());
         return user;
     }
 }

@@ -1,29 +1,30 @@
 package com.softserve.paymentservice.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
+@Entity
 @Data
-@EntityScan
-@Table(name = "invoice")
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "invoices")
 public class Invoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int invoiceID;
+    private int id;
 
-    private UUID userUUID;
     private int amount;
     private boolean payed;
     private String currency;
     private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 }
