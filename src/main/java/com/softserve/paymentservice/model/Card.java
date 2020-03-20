@@ -1,14 +1,13 @@
 package com.softserve.paymentservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cards")
@@ -22,8 +21,8 @@ public class Card {
     private String expYear;
     private boolean blocked;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+//    @ManyToOne()
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private User user;
 
 }
