@@ -14,7 +14,7 @@ public class CardDtoToModel implements Converter<CardDto, Card> {
         card.setExpMonth(cardDTO.getExpMonth());
         card.setExpYear(cardDTO.getExpYear());
         card.setUserId(cardDTO.getUserUUID());
-        card.setBlocked(false);
+        card.setWorking(false);
         return card;
     }
 }

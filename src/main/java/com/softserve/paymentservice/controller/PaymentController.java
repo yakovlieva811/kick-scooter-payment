@@ -44,11 +44,14 @@ public class PaymentController {
     @PostMapping("/card/verification")
     ResponseEntity<Card> ckeckCard(@RequestBody PaymentDto paymentDto) throws StripeException, CardNotFoundException {
 
-      boolean workingStatus =  paymentService.checkingPayment(cardService.getUserCardByNumber(paymentDto.getCardNumber(),paymentDto.getUserId()),paymentDto.getCvc());
+        boolean workingStatus = paymentService.checkingPayment(cardService.getUserCardByNumber(paymentDto.getCardNumber(), paymentDto.getUserId()), paymentDto.getCvc());
 
-      Card card =  cardService.setWorkingStatus(paymentDto.getCardNumber(),paymentDto.getUserId(),workingStatus);
-        return ResponseEntity.created(URI.create("/card/" + card.get)).build();
+        Card card = cardService.setWorkingStatus(paymentDto.getCardNumber(), paymentDto.getUserId(), workingStatus);
+//        return ResponseEntity.created(URI.create("/card/" + card.isWorking())).build();
+        return ResponseEntity.ok(card);
     }
+
+
     @PostMapping("/card/all")
     ResponseEntity<List<Card>> cards(@RequestParam(name = "userId") UUID userId) { //todo is ot works?
         List<Card> cards = cardService.getCardsByUserId(userId);
