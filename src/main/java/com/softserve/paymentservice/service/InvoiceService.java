@@ -32,7 +32,7 @@ public class InvoiceService {
         return invoice;
     }
 
-    public List<Invoice> findInvoices(UUID userId) { //todo add check for two unpayed
+    public List<Invoice> findInvoices(UUID userId) { //todo add check for two unpaid
         return invoiceRepository.findAllByUserId(userId);
     }
 

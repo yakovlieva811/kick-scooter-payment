@@ -5,7 +5,7 @@ import com.softserve.paymentservice.dto.PaymentInfoDto;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AmountCalculator { //todo discount
+public class AmountCalculator {
 
     private int amount;
 

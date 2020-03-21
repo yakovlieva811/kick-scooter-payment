@@ -11,7 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InvoiceDto {
-
     private UUID userUUID;
     private int amount;
     private boolean payed;

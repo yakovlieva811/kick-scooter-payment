@@ -25,10 +25,6 @@ import java.util.UUID;
 @RequestMapping("api/payment")
 public class PaymentController {
 
-    //todo update delete:  user card
-    //todo   if invoice is unpaid: can't delete card   + check card by refund
-
-
     private final AmountCalculator amountCalculator;
     private final CardService cardService;
     private final InvoiceService invoiceService;
@@ -53,7 +49,7 @@ public class PaymentController {
 
 
     @PostMapping("/card/all")
-    ResponseEntity<List<Card>> cards(@RequestParam(name = "userId") UUID userId) { //todo is ot works?
+    ResponseEntity<List<Card>> cards(@RequestParam(name = "userId") UUID userId) {
         List<Card> cards = cardService.getCardsByUserId(userId);
         return ResponseEntity.ok(cards);
     }
@@ -74,7 +70,7 @@ public class PaymentController {
             invoiceService.makePayed(paymentDto.getUserId());
             return ResponseEntity.ok(invoice);
         } else {
-            return (ResponseEntity<Invoice>) ResponseEntity.status(402); //todo ?
+            return (ResponseEntity<Invoice>) ResponseEntity.status(402);
         }
 
     }
@@ -84,20 +80,4 @@ public class PaymentController {
         List<Invoice> unpaid = invoiceService.findInvoices(userId);
         return ResponseEntity.ok(unpaid);
     }
-
-
-//    @PostMapping("/payment")
-//    ResponseEntity<Invoice> payInvoice(@RequestBody PaymentRequest paymentRequest) {
-////        Invoice invoice1 = invoiceService.createInvoice(amountCalculator.calculateAmount(paymentRequest), paymentRequest.getCurrency(), userService.findUser(paymentRequest.getUserid()));
-//        userService.findUser(paymentRequest.getUserid());
-//        User user = userService.findUser(paymentRequest.getUserid());
-//        List<Invoice> invoices = invoiceService.findInvoices(user, false);
-//
-//
-//        invoices.size();
-//
-////        paymentService.charge();
-//
-//        return ResponseEntity.ok(invoice);
-//    }
 }
