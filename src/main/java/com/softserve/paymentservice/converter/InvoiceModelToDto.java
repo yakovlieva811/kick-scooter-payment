@@ -10,7 +10,7 @@ public class InvoiceModelToDto implements Converter<Invoice, InvoiceDto> {
     @Override
     public InvoiceDto convert(Invoice invoice) {
         InvoiceDto invoiceDTO = new InvoiceDto();
-//        invoiceDTO.setUserUUID(invoice.getUserUUID());
+        invoiceDTO.setUserUUID(invoice.getUserId());
         invoiceDTO.setAmount(invoice.getAmount());
         invoiceDTO.setCurrency(invoice.getCurrency());
         invoiceDTO.setDate(invoice.getDate());

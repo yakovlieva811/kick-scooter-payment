@@ -1,7 +1,6 @@
 package com.softserve.paymentservice.repository;
 
 import com.softserve.paymentservice.model.Invoice;
-import com.softserve.paymentservice.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +12,13 @@ import java.util.UUID;
 @Component
 public interface InvoiceRepository extends JpaRepository<Invoice, UUID> {
 
-    List<Invoice> findAllByUser(User user);
+    List<Invoice> findAllByUserId(UUID userId);
 
-    Optional<Invoice> findInvoiceByDateAndUser(Date date, User user);
+    Optional<Invoice> findInvoiceByDateAndUserId(Date date, UUID userId);
 
-    List<Invoice> findInvoicesByPayedAndUser(Boolean payed, User user);
+    List<Invoice> findInvoicesByPayedAndUserId(Boolean payed, UUID userId);
 
-    Invoice findInvoiceByPayedAndUser(Boolean payed, User user);
+    Invoice findInvoiceByPayedAndUserId(Boolean payed,UUID userId);
 
 
 }

@@ -13,8 +13,8 @@ public class CardDtoToModel implements Converter<CardDto, Card> {
         card.setCardNumber(cardDTO.getCardNumber());
         card.setExpMonth(cardDTO.getExpMonth());
         card.setExpYear(cardDTO.getExpYear());
-//        card.setUserUUID(cardDTO.getUserUUID());
-//        card.setBlocked(cardDTO.isBlocked());
+        card.setUserId(cardDTO.getUserUUID());
+        card.setBlocked(false);
         return card;
     }
 }

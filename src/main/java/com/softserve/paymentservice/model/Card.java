@@ -3,6 +3,7 @@ package com.softserve.paymentservice.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 
 @Entity
@@ -19,10 +20,7 @@ public class Card {
     private String cardNumber;
     private String expMonth;
     private String expYear;
-    private boolean blocked;
-
-//    @ManyToOne()
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
+    private boolean working;
+    private UUID userId;
 
 }
